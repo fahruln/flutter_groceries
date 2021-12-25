@@ -12,8 +12,8 @@ class BeveragesPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 27),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20),
           child: ListView(
             children: [
               SizedBox(
@@ -27,7 +27,7 @@ class BeveragesPage extends StatelessWidget {
               Container(
                 alignment: Alignment.centerLeft,
                 margin: EdgeInsets.symmetric(vertical: 20),
-                height: 50,
+                height: 55,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
                     color: Color(0xffF2F3F2)),
@@ -48,35 +48,53 @@ class BeveragesPage extends StatelessWidget {
                 width: double.infinity,
                 height: 115,
                 decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
                     image: DecorationImage(
                         image: AssetImage('images/banner.png'),
                         fit: BoxFit.cover)),
               ),
-              Container(
-                margin: EdgeInsets.only(bottom: 15),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    groceries(
-                        'images/pngfuel 11.png', 'Diet Coke', '355ml', 'Rp199'),
-                    groceries(
-                        'images/pngfuel 12.png', 'Sprite', '325ml', 'Rp210')
-                  ],
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Exclusive Offer',
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    'See all',
+                    style: TextStyle(fontSize: 16, color: Colors.green),
+                  )
+                ],
               ),
-              Container(
-                margin: EdgeInsets.only(bottom: 15),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                padding: EdgeInsets.symmetric(vertical: 20),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    groceries(
+                        'images/pngfuel 12.png', 'Sprite', '325ml', 'Rp210'),
                     groceries(
                         'images/cocacola.png', 'CocaCola', '325ml', 'Rp200'),
                     groceries('images/pepsi.png', 'Pepsi', '305ml', 'Rp180'),
                   ],
                 ),
               ),
-              Container(
-                margin: EdgeInsets.only(bottom: 15),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Best Selling',
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    'See all',
+                    style: TextStyle(fontSize: 16, color: Colors.green),
+                  )
+                ],
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                padding: EdgeInsets.symmetric(vertical: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -84,11 +102,36 @@ class BeveragesPage extends StatelessWidget {
                         'Rp560'),
                     groceries(
                         'images/appleJuice.png', 'Apple Juice', '2L', 'Rp560'),
+                    groceries(
+                        'images/pngfuel 11.png', 'Diet Coke', '355ml', 'Rp190')
                   ],
                 ),
               )
             ],
           ),
+        ),
+      ),
+      bottomNavigationBar: SizedBox(
+        height: 75,
+        child: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          iconSize: 28,
+          elevation: 10,
+          backgroundColor: Colors.white,
+          selectedItemColor: Colors.green,
+          unselectedItemColor: Colors.black,
+          items: [
+            BottomNavigationBarItem(
+                icon: Icon(Icons.store_outlined), label: 'Shop'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.manage_search), label: 'Explore'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.shopping_cart_outlined), label: 'Cart'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.favorite_border_outlined), label: 'Favorite'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.person_outlined), label: 'Account')
+          ],
         ),
       ),
     );
@@ -97,6 +140,7 @@ class BeveragesPage extends StatelessWidget {
 
 Widget groceries(String image, String name, String detail, String price) {
   return Container(
+    margin: EdgeInsets.only(right: 15),
     width: 160,
     height: 240,
     padding: EdgeInsets.all(12),
