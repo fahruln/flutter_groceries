@@ -30,7 +30,7 @@ class BeveragesPage extends StatelessWidget {
                 height: 55,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
-                    color: Color(0xffF2F3F2)),
+                    color: Colors.grey.shade200),
                 child: TextField(
                   cursorColor: Color(0xff181B19),
                   decoration: InputDecoration(
@@ -39,7 +39,7 @@ class BeveragesPage extends StatelessWidget {
                         Icons.search,
                         color: Color(0xff181B19),
                       ),
-                      hintText: 'Search Store',
+                      hintText: 'Search your daily grocery ...',
                       border: OutlineInputBorder(borderSide: BorderSide.none)),
                 ),
               ),
@@ -58,7 +58,7 @@ class BeveragesPage extends StatelessWidget {
                 children: [
                   Text(
                     'Exclusive Offer',
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   Text(
                     'See all',
@@ -84,7 +84,7 @@ class BeveragesPage extends StatelessWidget {
                 children: [
                   Text(
                     'Best Selling',
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   Text(
                     'See all',
@@ -112,25 +112,24 @@ class BeveragesPage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: SizedBox(
-        height: 75,
+        height: 70,
         child: BottomNavigationBar(
+          elevation: 5,
           type: BottomNavigationBarType.fixed,
-          iconSize: 28,
-          elevation: 10,
+          iconSize: 30,
           backgroundColor: Colors.white,
           selectedItemColor: Colors.green,
-          unselectedItemColor: Colors.black,
+          unselectedItemColor: Colors.grey.shade300,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
           items: [
             BottomNavigationBarItem(
-                icon: Icon(Icons.store_outlined), label: 'Shop'),
+                icon: Icon(Icons.home_filled), label: 'Home'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.manage_search), label: 'Explore'),
+                icon: Icon(Icons.shopping_cart), label: 'My Cart'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_cart_outlined), label: 'Cart'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.favorite_border_outlined), label: 'Favorite'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.person_outlined), label: 'Account')
+                icon: Icon(Icons.favorite), label: 'Favorite'),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Account')
           ],
         ),
       ),
@@ -145,8 +144,7 @@ Widget groceries(String image, String name, String detail, String price) {
     height: 240,
     padding: EdgeInsets.all(12),
     decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey.shade400),
-        borderRadius: BorderRadius.circular(10)),
+        color: Colors.grey.shade50, borderRadius: BorderRadius.circular(10)),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
